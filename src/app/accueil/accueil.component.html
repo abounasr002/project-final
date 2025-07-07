@@ -1,0 +1,100 @@
+<!-- <header class="app-header">
+    <div class="logo">
+        <a routerLink="/accueil">
+            <img src="TG.webp" alt="Together Logo" />
+        </a>
+    </div>
+    <nav class="nav-links">
+        <a routerLink="/login">Se connecter</a>
+        <a routerLink="/register">S'inscrire</a>
+    </nav>
+</header>
+
+<div class="landing-container">
+    <div class="text-section">
+        <h1>Bienvenue sur Together</h1>
+        <p>La nouvelle plateforme sociale pour partager, discuter et se connecter avec le monde.</p>
+        <ul class="features">
+            <li>🟣 Créez votre profil personnalisé</li>
+            <li>🟣 Partagez vos pensées et photos</li>
+            <li>🟣 Rejoignez des groupes et événements</li>
+            <li>🟣 Système de messagerie en temps réel</li>
+        </ul>
+        <div class="btn-group">
+            <button routerLink="/login">Connexion</button>
+            <button routerLink="/register">Créer un compte</button>
+        </div>
+    </div>
+
+    <div class="image-section">
+        <img src="social-illustration.webp" alt="Illustration communauté">
+    </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header>
+  <img src="assets/logo.png" alt="Logo Together" class="logo" />
+
+  <div class="user-nav">
+    <input type="text" placeholder="Rechercher..." class="search-input" />
+    <img src="assets/user-avatar.jpg" alt="Photo de profil" class="user-avatar" />
+  </div>
+</header>
+
+<main>
+  <section class="left">
+    <!-- Botón Accueil (Posts) actualizado -->
+    <h2 (click)="goToPosts()" class="nav-btn" [class.active]="isActive('/posts')">
+      <i class="fas fa-home"></i>
+      <span>Post</span>
+    </h2>
+
+    <h2 routerLink="/session" routerLinkActive="active" class="nav-btn">
+      <i class="fas fa-comments"></i>
+      <span>Likes</span>
+    </h2>
+
+    <h2 routerLink="/profil" routerLinkActive="active" class="nav-btn">
+      <i class="fas fa-user"></i>
+      <span>Profil</span>
+    </h2>
+
+    <h2 routerLink="/search" routerLinkActive="active" class="nav-btn">
+      <i class="fas fa-search"></i>
+      <span>Rechercher</span>
+    </h2>
+
+    <h2 routerLink="/settings" routerLinkActive="active" class="nav-btn">
+      <i class="fas fa-cog"></i>
+      <span>Paramètres</span>
+    </h2>
+
+    <h2 (click)="logout()" class="nav-btn logout-btn">
+      <i class="fas fa-sign-out-alt"></i>
+      <span>Déconnexion</span>
+    </h2>
+
+    <button routerLink="/create-post" class="create-post-btn">
+      <i class="fas fa-plus"></i>
+      <span>Créer un post</span>
+    </button>
+  </section>
+
+  <section class="middle">
+
+  </section>
+</main>
+
+
+

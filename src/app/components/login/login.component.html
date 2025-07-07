@@ -1,0 +1,633 @@
+<!-- <header class="app-header">
+    <div class="logo">
+      <a href="/accueil" alt="Logo"></a>
+    </div>
+  
+    <div class="centre">
+      <h2>! Connectez-vous pour accéder au service !</h2>
+    </div>
+  
+    <div class="status">
+      <p>Déconnecté</p>
+    </div>
+  </header>
+  
+  <div id="identification">
+    <div id="utilisateur">
+      <h2>Identification</h2>
+      <form (ngSubmit)="login()">
+        <div class="speudo">
+          <input 
+            type="email" 
+            placeholder="Email" 
+            [(ngModel)]="email" 
+            name="email" 
+            required 
+          />
+          <input 
+            type="password" 
+            placeholder="Mot de passe" 
+            [(ngModel)]="password" 
+            name="password" 
+            required 
+          />
+        </div>
+        <div class="validez">
+          <button type="submit">Validez</button>
+        </div>
+      </form>
+  
+
+      <div class="register-link">
+        <p>Pas encore de compte ? <a href="/register">Inscrivez-vous ici</a></p>
+      </div>
+    </div>
+  </div>
+   -->
+
+
+
+
+
+
+
+
+
+
+<!-- 
+   <header class="app-header">
+    <div class="logo">
+      <a href="/accueil" alt="Logo">
+        <img src="logo" alt="Logo">
+      </a>
+    </div>
+  
+    <div class="centre">
+      <h2>! Connectez-vous pour accéder au service !</h2>
+    </div>
+  
+    <div class="status">
+      <p>{{ isAuthenticated ? 'Connecté' : 'Déconnecté' }}</p> 
+    </div>
+  </header>
+  
+  <div id="identification">
+    <div id="utilisateur">
+      <h2>Identification</h2>
+      <form (ngSubmit)="login()">
+        <div class="speudo">
+          <input 
+            type="email" 
+            placeholder="Email" 
+            [(ngModel)]="email" 
+            name="email" 
+            required 
+          />
+          <input 
+            type="password" 
+            placeholder="Mot de passe" 
+            [(ngModel)]="password" 
+            name="password" 
+            required 
+          />
+        </div>
+        <div class="validez">
+          <button type="submit">Validez</button>
+        </div>
+      </form>
+  
+      <div class="register-link">
+        <p>Pas encore de compte ? <a href="/register">Inscrivez-vous ici</a></p>
+      </div>
+  
+    
+      <div *ngIf="isAuthenticated">
+        <button (click)="logout()">Déconnexion</button>
+      </div>
+    </div>
+  </div>
+   -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+   <header class="app-header">
+    <div class="logo">
+      <a href="/accueil" alt="Logo"></a>
+    </div>
+  
+    <div class="centre">
+      <h2>! Connectez-vous pour accéder au service !</h2>
+    </div>
+  
+    <div class="status">
+      <p>{{ isAuthenticated ? 'Connecté' : 'Déconnecté' }}</p>
+    </div>
+  </header>
+  
+  <div id="identification">
+    <div id="utilisateur">
+      <h2>Identification</h2>
+  
+   
+      <div *ngIf="errorMessage" class="error-message">
+        <p>{{ errorMessage }}</p>
+      </div>
+  
+      <form (ngSubmit)="login()">
+        <div class="speudo">
+          <input 
+            type="email" 
+            placeholder="Email" 
+            [(ngModel)]="email" 
+            name="email" 
+            required 
+          />
+          <input 
+            type="password" 
+            placeholder="Mot de passe" 
+            [(ngModel)]="password" 
+            name="password" 
+            required 
+          />
+        </div>
+        <div class="validez">
+          <button type="submit">Validez</button>
+        </div>
+      </form>
+  
+      <div class="register-link">
+        <p>Pas encore de compte ? <a href="/register">Inscrivez-vous ici</a></p>
+      </div>
+    </div>
+  </div>
+   -->
+
+
+
+
+
+<!-- 
+
+   <header class="app-header">
+    <div class="logo">
+      <a href="/accueil" alt="Logo">
+        <img src="TG.webp" alt="Logo" />
+      </a>
+    </div>
+  
+    <div class="centre">
+      <h2>! Connectez-vous pour accéder au service !</h2>
+    </div>
+  
+    <div class="status">
+      <p *ngIf="isAuthenticated">Connecté</p>
+      <p *ngIf="!isAuthenticated">Déconnecté</p>
+    </div>
+  </header>
+  
+  <div id="identification">
+    <div id="utilisateur">
+      <h2>Identification</h2>
+  
+     
+      <div *ngIf="errorMessage" class="error-message">
+        <p>{{ errorMessage }}</p>
+      </div>
+  
+    
+      <form (ngSubmit)="login()">
+        <div class="speudo">
+          <input
+            type="email"
+            placeholder="Email"
+            [(ngModel)]="email"
+            name="email"
+            required
+          />
+          <input
+            type="password"
+            placeholder="Mot de passe"
+            [(ngModel)]="password"
+            name="password"
+            required
+          />
+        </div>
+  
+        <div class="validez">
+          <button type="submit">Valider</button>
+        </div>
+      </form>
+  
+     
+      <div class="register-link">
+        <p>Pas encore de compte ? <a href="/register">Inscrivez-vous ici</a></p>
+      </div>
+    </div>
+  </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <header class="app-header">
+    <div class="logo">
+      <a href="/accueil" alt="Logo">
+        <img src="TG.webp" alt="Logo" />
+      </a>
+    </div>
+  
+    <div class="centre">
+      <h2>! Connectez-vous pour accéder au service !</h2>
+    </div>
+  
+    <div class="status">
+      <p *ngIf="isAuthenticated">Connecté</p>
+      <p *ngIf="!isAuthenticated">Déconnecté</p>
+    </div>
+</header>
+
+<div id="identification">
+    <div id="utilisateur">
+        <h2>Identification</h2>
+
+   
+        <div *ngIf="errorMessage" class="error-message">
+            <p>{{ errorMessage }}</p>
+        </div>
+
+      
+        <form (ngSubmit)="login()">
+            <div class="speudo">
+                <input
+                    type="email"
+                    placeholder="Email"
+                    [(ngModel)]="email"
+                    name="email"
+                    required
+                />
+                <input
+                    type="password"
+                    placeholder="Mot de passe"
+                    [(ngModel)]="password"
+                    name="password"
+                    required
+                />
+            </div>
+
+            <div class="validez">
+                <button type="submit">Valider</button>
+            </div>
+        </form>
+
+    
+        <div class="register-link">
+            <p>Pas encore de compte ? <a href="/register">Inscrivez-vous ici</a></p>
+        </div>
+    </div>
+</div> -->
+
+
+
+
+<!-- Elimina todo el DOCTYPE, html, head y body -->
+<div class="login-wrapper">
+  <header class="app-header" role="banner">
+    <div class="header-container">
+      <div class="logo">
+        <a routerLink="/accueil" aria-label="Retour à l'accueil">
+          <img src="TG.webp" alt="Logo de l'application" width="120" height="auto">
+        </a>
+      </div>
+      <div class="header-center" aria-live="polite">
+        <h1 class="welcome-message">Connectez-vous pour accéder au service</h1>
+      </div>
+      <div class="status-indicator">
+        <span class="status-badge" [class.connected]="isAuthenticated" [class.disconnected]="!isAuthenticated">
+          {{ isAuthenticated ? 'Connecté' : 'Déconnecté' }}
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <main class="login-container" role="main">
+    <section class="login-card" aria-labelledby="login-heading">
+      <div class="card-header">
+        <h2 id="login-heading">Identification</h2>
+      </div>
+
+      <div *ngIf="errorMessage" class="alert alert-error" role="alert">
+        <svg class="alert-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+        </svg>
+        <p>{{ errorMessage }}</p>
+      </div>
+
+      <form [formGroup]="loginForm" (ngSubmit)="login()" class="login-form" novalidate>
+        <div class="form-group">
+          <label for="email" class="sr-only">Email</label>
+          <input 
+            type="email" 
+            id="email"
+            class="form-input"
+            placeholder="Adresse email" 
+            formControlName="email"
+            required
+            autocomplete="email"
+          >
+          <span class="input-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+          </span>
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="sr-only">Mot de passe</label>
+          <input 
+            type="password" 
+            id="password"
+            class="form-input"
+            placeholder="Mot de passe" 
+            formControlName="password"
+            required
+            autocomplete="current-password"
+          >
+          <span class="input-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+            </svg>
+          </span>
+        </div>
+
+        <div class="form-actions">
+          <button 
+            type="submit" 
+            class="btn btn-primary"
+            [disabled]="loginForm.invalid"
+          >
+            Se connecter
+          </button>
+        </div>
+      </form>
+
+      <div class="secondary-actions">
+        <p class="register-prompt">
+          Pas encore de compte ? 
+         <a href="/register" class="register-link">Créer un compte</a>
+        </p>
+        <a routerLink="/forgot-password" class="forgot-password">Mot de passe oublié ?</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer" role="contentinfo">
+    <div class="footer-content">
+      <p>&copy; 2023 Nom de l'Application. Tous droits réservés.</p>
+      <nav class="footer-links">
+        <a routerLink="/privacy">Confidentialité</a>
+        <a routerLink="/terms">Conditions d'utilisation</a>
+        <a routerLink="/contact">Contact</a>
+      </nav>
+    </div>
+  </footer>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container">
+  <div class="row justify-content-center">
+    <div class="col-xl-10 col-lg-12 col-md-9">
+      <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+          <div class="row">
+            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+            <div class="col-lg-6">
+              <div class="p-5">
+                <div class="text-center">
+                  <h1 class="h4 text-gray-900 mb-4">Welcome!</h1>
+                </div>
+
+                <form [formGroup]="loginForm" (ngSubmit)="login()" class="user">
+                  <div class="form-group">
+                    <input
+                      type="email"
+                      formControlName="email"
+                      class="form-control form-control-user"
+                      placeholder="Enter Email Address..."
+                    />
+                    <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid" class="text-danger small mt-1">
+                      <div *ngIf="loginForm.get('email')?.errors?.['required']">Email is required.</div>
+                      <div *ngIf="loginForm.get('email')?.errors?.['email']">Invalid email address.</div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <input
+                      type="password"
+                      formControlName="password"
+                      class="form-control form-control-user"
+                      placeholder="Password"
+                    />
+                    <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid" class="text-danger small mt-1">
+                      Password is required.
+                    </div>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary btn-user btn-block" [disabled]="loginForm.invalid">
+                    Login
+                  </button>
+
+                  <div *ngIf="errorMessage" class="text-danger text-center mt-3 small">
+                    {{ errorMessage }}
+                  </div>
+
+                  <hr />
+                  <button type="button" class="btn btn-google btn-user btn-block">
+                    <i class="fab fa-google fa-fw"></i> Login with Google
+                  </button>
+                  <button type="button" class="btn btn-facebook btn-user btn-block">
+                    <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
+                  </button>
+                </form>
+
+                <hr />
+                <div class="text-center">
+                  <a class="small" routerLink="/forgot-password">Forgot Password?</a>
+                </div>
+                <div class="text-center">
+                  <a class="small" (click)="goToRegister()">Create an Account!</a>
+                </div>
+
+                <div class="text-center mt-3" *ngIf="isAuthenticated">
+                  <button (click)="logout()" class="btn btn-sm btn-outline-danger">Logout</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<header class="app-header d-flex justify-content-between align-items-center p-3 bg-white shadow-sm">
+  <div class="logo">
+    <a routerLink="/accueil">
+      <img src="assets/TG.webp" alt="Logo" style="height: 40px;" />
+    </a>
+  </div>
+
+  <div class="centre">
+    <h2 class="mb-0 text-primary">Connectez-vous pour accéder au service</h2>
+  </div>
+
+  <div class="status text-end">
+    <p *ngIf="isAuthenticated" class="text-success mb-0">Connecté</p>
+    <p *ngIf="!isAuthenticated" class="text-danger mb-0">Déconnecté</p>
+  </div>
+</header>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-xl-10 col-lg-12 col-md-9">
+      <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+          <div class="row">
+            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+            <div class="col-lg-6">
+              <div class="p-5">
+                <div class="text-center">
+                  <h1 class="h4 text-gray-900 mb-4">Identification</h1>
+                </div>
+
+                <div *ngIf="errorMessage" class="alert alert-danger text-center py-2">
+                  {{ errorMessage }}
+                </div>
+
+                <form [formGroup]="loginForm" (ngSubmit)="login()" class="user">
+                  <div class="form-group mb-3">
+                    <input 
+                      type="email" 
+                      formControlName="email" 
+                      class="form-control form-control-user" 
+                      placeholder="Email" 
+                      required
+                    />
+                    <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid" class="text-danger small mt-1">
+                      <div *ngIf="loginForm.get('email')?.errors?.['required']">Email requis.</div>
+                      <div *ngIf="loginForm.get('email')?.errors?.['email']">Email invalide.</div>
+                    </div>
+                  </div>
+
+                  <div class="form-group mb-3">
+                    <input 
+                      type="password" 
+                      formControlName="password" 
+                      class="form-control form-control-user" 
+                      placeholder="Mot de passe" 
+                      required
+                    />
+                    <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid" class="text-danger small mt-1">
+                      Mot de passe requis.
+                    </div>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary btn-user btn-block" [disabled]="loginForm.invalid">
+                    Valider
+                  </button>
+                </form>
+
+                <hr />
+
+                <div class="text-center">
+                  <p class="small">Pas encore de compte ?
+                    <a class="text-primary" routerLink="/register">Inscrivez-vous ici</a>
+                  </p>
+                </div>
+
+                <div class="text-center mt-3" *ngIf="isAuthenticated">
+                  <button (click)="logout()" class="btn btn-sm btn-outline-danger">Se déconnecter</button>
+                </div>
+
+              </div> 
+            </div> 
+          </div> 
+        </div> 
+      </div> 
+    </div> 
+  </div> 
+</div> -->
+
+
+
+
+

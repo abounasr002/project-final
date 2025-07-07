@@ -1,0 +1,148 @@
+<!-- src/app/post/post.component.html
+
+<div class="post-container">
+  <button (click)="toggleForm()">
+    {{ showForm ? 'Annuler' : 'Créer un post' }}
+  </button>
+
+  <form *ngIf="showForm" (ngSubmit)="createPost()">
+    <textarea
+      [(ngModel)]="nouveauPost.content"
+      name="content"
+      placeholder="Contenu du post"
+      required
+      minlength="5"
+      maxlength="500"
+    ></textarea>
+
+    <input
+      type="url"
+      [(ngModel)]="nouveauPost.media"
+      name="media"
+      placeholder="URL du média (facultatif)"
+    />
+
+    <input
+      type="url"
+      [(ngModel)]="nouveauPost.link"
+      name="link"
+      placeholder="Lien externe (facultatif)"
+    />
+
+    <button type="submit">Publier</button>
+  </form>
+
+  <div *ngFor="let post of posts" class="post-card">
+    <p>{{ post.content }}</p>
+
+    <img *ngIf="post.media" [src]="post.media" class="media" />
+
+    <a *ngIf="post.link" [href]="post.link" target="_blank">Lien externe</a>
+
+    <p class="date">{{ post.createdAt | date: 'dd/MM/yyyy HH:mm' }}</p>
+
+    <button (click)="supprimerPost(post.id!)">Supprimer</button>
+  </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="post-container">
+  <!-- Formulario para crear posts -->
+  <button (click)="toggleForm()">Créer un post</button>
+
+  <div *ngIf="showForm" class="form">
+    <textarea [(ngModel)]="nouveauPost.content" placeholder="Contenu..."></textarea>
+    <input [(ngModel)]="nouveauPost.media" placeholder="URL image/vidéo" />
+    <input [(ngModel)]="nouveauPost.link" placeholder="Lien" />
+    <button (click)="createPost()">Publier</button>
+  </div>
+
+  <!-- Lista de posts -->
+  <div *ngFor="let post of posts" class="post-card">
+    <!-- Encabezado del post -->
+    <div class="post-header">
+      <img [src]="post.user?.avatar || 'assets/default-avatar.png'" 
+           class="post-avatar" 
+           alt="Avatar">
+      <span class="post-username">{{post.user?.username || 'Usuario'}}</span>
+    </div>
+
+    <!-- Contenido del post -->
+    <p class="post-content">{{ post.content }}</p>
+
+    <!-- Media del post -->
+    <div class="post-media">
+      <img *ngIf="isImage(post.media)" [src]="post.media" alt="Media del post" />
+      <video *ngIf="isVideo(post.media)" controls>
+        <source [src]="post.media" />
+      </video>
+    </div>
+
+    <!-- Enlace del post -->
+    <a *ngIf="post.link" [href]="post.link" class="post-link" target="_blank">{{ post.link }}</a>
+
+    <!-- Fecha del post -->
+    <p class="post-date">Publié le : {{ post.createdAt | date:'medium' }}</p>
+
+    <!-- Acciones del post -->
+    <div class="actions">
+      <button 
+        (click)="likePost(post.id)" 
+        [class.liked]="likedPosts[post.id]"
+        class="like-button">
+        ❤️ {{ post.likes || 0 }}
+      </button>
+
+      <button (click)="toggleCommentForm(post.id)">💬 Commentaire</button>
+      <button *ngIf="post.userId === currentUserId" (click)="deletePost(post.id)">🗑 Supprimer</button>
+    </div>
+
+    <!-- Sección de comentarios -->
+    <div *ngIf="showCommentForm[post.id]" class="comments-section">
+      <!-- Formulario para comentar -->
+      <div class="comment-input">
+        <img [src]="currentUserAvatar" 
+             class="comment-avatar" 
+             alt="Tu avatar">
+        <input [(ngModel)]="newComment[post.id]" placeholder="Ajouter un commentaire..." />
+        <button (click)="addComment(post.id)">Envoyer</button>
+        <button (click)="cancelComment(post.id)">Annuler</button>
+      </div>
+      
+      <!-- Lista de comentarios -->
+      <div *ngFor="let comment of comments[post.id]" class="comment">
+        <img [src]="comment.user?.avatar || 'assets/default-avatar.png'" 
+             class="comment-avatar" 
+             alt="Avatar">
+        
+        <div class="comment-body">
+          <div class="comment-header">
+            <span class="comment-username">{{comment.user?.username || 'Usuario'}}</span>
+            <span class="comment-date">{{ comment.createdAt | date:'short' }}</span>
+          </div>
+          <p class="comment-content">{{ comment.content }}</p>
+        </div>
+        
+        <div class="comment-actions">
+          <button *ngIf="comment.userId === currentUserId" 
+                  class="comment-delete"
+                  (click)="deleteComment(comment.id, post.id)">×</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

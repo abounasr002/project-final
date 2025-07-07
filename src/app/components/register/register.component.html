@@ -1,0 +1,287 @@
+<!-- <header class="app-header">
+    <div class="logo">
+      <a href="/accueil" alt="Logo">
+        <img src="../login/TG.webp" alt="">
+      </a>
+    </div>
+  
+    <div class="centre">
+      <h2>! Créez votre compte pour accéder aux services !</h2>
+    </div>
+  
+    <div class="status">
+      <p>Déconnecté</p>
+    </div>
+  </header>
+  
+  <div id="identification">
+    <div id="utilisateur">
+      <h2>Inscription</h2>
+      <form (ngSubmit)="register()">
+        <div class="speudo">
+          <input 
+            type="text" 
+            placeholder="Nom d'utilisateur" 
+            [(ngModel)]="nom" 
+            name="nom" 
+            required 
+          />
+          <input 
+            type="email" 
+            placeholder="Email" 
+            [(ngModel)]="email" 
+            name="email" 
+            required 
+          />
+          <input 
+            type="password" 
+            placeholder="Mot de passe" 
+            [(ngModel)]="password" 
+            name="password" 
+            required 
+          />
+        </div>
+        <div class="validez">
+          <button type="submit">S'inscrire</button>
+        </div>
+      </form>
+      <div class="login-link">
+        <p>Vous avez déjà un compte ? <a href="/login">Connectez-vous ici</a></p>
+      </div>
+    </div>
+  </div>
+   -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <header class="app-header">
+    <div class="logo">
+
+    <a href="/accueil" alt="Logo">
+        <img src="../login/TG.webp" alt="Logo" />
+    </a>
+    </div>
+
+    <div class="centre">
+    <h2>! Créez votre compte pour accéder aux services !</h2>
+    </div>
+
+    <div class="status">
+    <p>Déconnecté</p>
+    </div>
+</header>
+
+<div id="identification">
+    <div id="utilisateur">
+    <h2>Inscription</h2>
+    <form (ngSubmit)="register()">
+        <div class="speudo">
+        <input 
+            type="text" 
+            placeholder="Nom d'utilisateur" 
+            [(ngModel)]="nom" 
+            name="nom" 
+            required 
+            />
+        <input 
+            type="email" 
+            placeholder="Email" 
+            [(ngModel)]="email" 
+            name="email" 
+            required 
+            />
+        <input 
+            type="password" 
+            placeholder="Mot de passe" 
+            [(ngModel)]="password" 
+            name="password" 
+            required 
+            />
+        </div>
+        <div class="validez">
+            <button type="submit">S'inscrire</button>
+        </div>
+    </form>
+    <div class="login-link">
+        <p>Vous avez déjà un compte ? <a href="/login">Connectez-vous ici</a></p>
+    </div>
+    </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <header class="app-header">
+  <div class="logo">
+      <a href="/accueil" alt="Logo">
+          <img src="../login/TG.webp" alt="Logo" />
+      </a>
+  </div>
+
+  <div class="centre">
+      <h2>! Créez votre compte pour accéder aux services !</h2>
+  </div>
+
+  <div class="status">
+      <p>Déconnecté</p>
+  </div>
+</header>
+
+<div id="identification">
+  <div id="utilisateur">
+      <h2>Inscription</h2>
+      <form (ngSubmit)="register()">
+          <div class="speudo">
+              <input 
+                  type="text" 
+                  placeholder="Nom d'utilisateur" 
+                  [(ngModel)]="nom" 
+                  name="nom" 
+                  required 
+              />
+              <input 
+                  type="email" 
+                  placeholder="Email" 
+                  [(ngModel)]="email" 
+                  name="email" 
+                  required 
+              />
+              <input 
+                  type="password" 
+                  placeholder="Mot de passe" 
+                  [(ngModel)]="password" 
+                  name="password" 
+                  required 
+              />
+          </div>
+          <div class="validez">
+              <button type="submit">S'inscrire</button>
+          </div>
+      </form>
+      <div class="login-link">
+          <p>Vous avez déjà un compte ? <a href="/login">Connectez-vous ici</a></p>
+      </div>
+  </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="app-header">
+  <div class="logo">
+    <a href="/accueil" alt="Logo">
+      <img src="../login/TG.webp" alt="Logo" />
+    </a>
+  </div>
+
+  <div class="centre">
+    <h2>! Créez votre compte pour accéder aux services !</h2>
+  </div>
+
+  <div class="status">
+    <p>Déconnecté</p>
+  </div>
+</header>
+
+<div id="identification">
+  <div id="utilisateur">
+    <h2>Inscription</h2>
+    
+    <!-- Mensaje de éxito -->
+    <div *ngIf="successMessage" class="success-message">
+      <p>{{ successMessage }}</p>
+    </div>
+
+    <!-- Mensaje de error -->
+    <div *ngIf="errorMessage" class="error-message">
+      <p>{{ errorMessage }}</p>
+    </div>
+
+    <form (ngSubmit)="register()">
+      <div class="speudo">
+        <input 
+          type="text" 
+          placeholder="Nom d'utilisateur" 
+          [(ngModel)]="nom" 
+          name="nom" 
+          required 
+        />
+        <input 
+          type="email" 
+          placeholder="Email" 
+          [(ngModel)]="email" 
+          name="email" 
+          required 
+        />
+        <input 
+          type="password" 
+          placeholder="Mot de passe" 
+          [(ngModel)]="password" 
+          name="password" 
+          required 
+        />
+      </div>
+      <div class="validez">
+        <button type="submit">S'inscrire</button>
+      </div>
+    </form>
+    <div class="login-link">
+      <p>Vous avez déjà un compte ? <a href="/login">Connectez-vous ici</a></p>
+    </div>
+  </div>
+</div>
+

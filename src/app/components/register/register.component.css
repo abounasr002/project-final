@@ -1,0 +1,135 @@
+* {
+    box-sizing: border-box;
+}
+
+.error-message p {
+    color: red;
+    font-weight: bold;
+    margin: 4px 0 0 0;
+    font-size: 1em;
+  }
+  
+  .success-message p {
+    color: green;
+    font-weight: bold;
+    margin: 4px 0 0 0;
+    font-size: 1em;
+  }
+  
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* HEADER */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: #2c3e50;
+    color: #fff;
+}
+
+.logo img {
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+/* Texto central del header */
+.centre h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #fff;
+}
+
+/* Estado del usuario */
+.status p {
+    margin: 0;
+    font-size: 1rem;
+    color: #fff;
+}
+
+/* CONTENEDOR DEL REGISTRO */
+#identification {
+    padding: 50px;
+    background: #ecf0f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 100px); /* Ajuste según la altura del header */
+}
+
+#utilisateur {
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Título de la sección de registro */
+#utilisateur h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Estilos para los inputs del formulario */
+.speudo input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Botón de envío del formulario */
+.validez button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #9b59b6;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.validez button:hover {
+    background: #8e44ad;
+    transform: translateY(-2px);
+}
+
+/* Enlace hacia la página de login */
+.login-link p {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-link a {
+    text-decoration: none;
+    color: #9b59b6;
+    font-weight: bold;
+}
+
+.login-link a:hover {
+    color: #8e44ad;
+}
+
+/* Animación (opcional) */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
