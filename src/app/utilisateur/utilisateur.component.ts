@@ -88,7 +88,7 @@ throw new Error('Method not implemented.');
     if (utilisateurId) {
       this.isEditMode = true;
       this.currentUserId = +utilisateurId;
-      this.loadUtilisateurForEdit(this.currentUserId);
+      // this.loadUtilisateurForEdit(this.currentUserId);
     }
   }
 
@@ -100,27 +100,27 @@ throw new Error('Method not implemented.');
   }
 
   // Load user for edit
-  loadUtilisateurForEdit(id: number): void {
-    this.utilisateurService.getById(id).subscribe(user => {
-      this.utilisateurForm.patchValue(user);
-    });
-  }
+  // loadUtilisateurForEdit(id: number): void {
+  //   this.utilisateurService.getById(id).subscribe(user => {
+  //     this.utilisateurForm.patchValue(user);
+  //   });
+  // }
 
   // Handle form submission (Create or Update)
-  onSubmit(): void {
-    if (this.utilisateurForm.valid) {
-      const formData = this.utilisateurForm.value;
-      if (this.isEditMode && this.currentUserId) {
-        this.utilisateurService.update(this.currentUserId, formData).subscribe(() => {
-          this.router.navigate(['/utilisateurs']);
-        });
-      } else {
-        this.utilisateurService.create(formData).subscribe(() => {
-          this.router.navigate(['/utilisateurs']);
-        });
-      }
-    }
-  }
+  // onSubmit(): void {
+  //   if (this.utilisateurForm.valid) {
+  //     const formData = this.utilisateurForm.value;
+  //     if (this.isEditMode && this.currentUserId) {
+  //       this.utilisateurService.update(this.currentUserId, formData).subscribe(() => {
+  //         this.router.navigate(['/utilisateurs']);
+  //       });
+  //     } else {
+  //       this.utilisateurService.create(formData).subscribe(() => {
+  //         this.router.navigate(['/utilisateurs']);
+  //       });
+  //     }
+  //   }
+  // }
 
   // Delete utilisateur
   deleteUtilisateur(id: number): void {

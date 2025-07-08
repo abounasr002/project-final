@@ -173,6 +173,8 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { UtilisateurService } from '../services/utilisateur.service';
+import { Utilisateur } from '../models/utilisateur.model';
 
 @Component({
   selector: 'app-accueil',
@@ -185,11 +187,20 @@ export class AccueilComponent {
   showForm = false;
   nouveauPost = { content: '', media: '', link: '' };
   posts: any[] = [];
+  utilisateur: Utilisateur | null = null;
 
   constructor(
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private utilisaterService: UtilisateurService
   ) {}
+
+  ngOnInit() {
+    this.utilisaterService.getMe().subscribe(utilisateur => {
+       this.utilisateur = utilisateur
+       console.log("Utilisateur co:", utilisateur)
+    })
+  }
 
   // Método para redirigir a posts
   goToPosts() {

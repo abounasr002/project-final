@@ -48,101 +48,141 @@
 
 
 
+<header>
+  <img src="assets/logo.png" alt="Logo Together" class="logo" />
 
-
-
-
-
-
-
-
-
-
-
-<div class="post-container">
-  <!-- Formulario para crear posts -->
-  <button (click)="toggleForm()">Créer un post</button>
-
-  <div *ngIf="showForm" class="form">
-    <textarea [(ngModel)]="nouveauPost.content" placeholder="Contenu..."></textarea>
-    <input [(ngModel)]="nouveauPost.media" placeholder="URL image/vidéo" />
-    <input [(ngModel)]="nouveauPost.link" placeholder="Lien" />
-    <button (click)="createPost()">Publier</button>
+  <div class="user-nav">
+    <h2>{{utilisateur?.nom}}</h2>
+    <img src="assets/user-avatar.jpg" alt="Photo de profil" class="user-avatar" />
   </div>
+</header>
 
-  <!-- Lista de posts -->
-  <div *ngFor="let post of posts" class="post-card">
-    <!-- Encabezado del post -->
-    <div class="post-header">
-      <img [src]="post.user?.avatar || 'assets/default-avatar.png'" 
-           class="post-avatar" 
-           alt="Avatar">
-      <span class="post-username">{{post.user?.username || 'Usuario'}}</span>
-    </div>
+<main>
+  <section class="left">
+    <!-- Botón Accueil (Posts) actualizado -->
+    <h2 (click)="goToPosts()" class="nav-btn">
+      <i class="fas fa-home"></i>
+      <span>Post</span>
+    </h2>
 
-    <!-- Contenido del post -->
-    <p class="post-content">{{ post.content }}</p>
+    <h2 routerLink="/session" routerLinkActive="active" class="nav-btn">
+      <i class="fas fa-comments"></i>
+      <span>Likes</span>
+    </h2>
 
-    <!-- Media del post -->
-    <div class="post-media">
-      <img *ngIf="isImage(post.media)" [src]="post.media" alt="Media del post" />
-      <video *ngIf="isVideo(post.media)" controls>
-        <source [src]="post.media" />
-      </video>
-    </div>
+    <h2 routerLink="/profil" routerLinkActive="active" class="nav-btn">
+      <i class="fas fa-user"></i>
+      <span>Profil</span>
+    </h2>
 
-    <!-- Enlace del post -->
-    <a *ngIf="post.link" [href]="post.link" class="post-link" target="_blank">{{ post.link }}</a>
+    <h2 routerLink="/search" routerLinkActive="active" class="nav-btn">
+      <i class="fas fa-search"></i>
+      <span>Rechercher</span>
+    </h2>
 
-    <!-- Fecha del post -->
-    <p class="post-date">Publié le : {{ post.createdAt | date:'medium' }}</p>
+    <h2 routerLink="/settings" routerLinkActive="active" class="nav-btn">
+      <i class="fas fa-cog"></i>
+      <span>Paramètres</span>
+    </h2>
 
-    <!-- Acciones del post -->
-    <div class="actions">
-      <button 
-        (click)="likePost(post.id)" 
-        [class.liked]="likedPosts[post.id]"
-        class="like-button">
-        ❤️ {{ post.likes || 0 }}
-      </button>
+    <h2 (click)="logout()" class="nav-btn logout-btn">
+      <i class="fas fa-sign-out-alt"></i>
+      <span>Déconnexion</span>
+    </h2>
 
-      <button (click)="toggleCommentForm(post.id)">💬 Commentaire</button>
-      <button *ngIf="post.userId === currentUserId" (click)="deletePost(post.id)">🗑 Supprimer</button>
-    </div>
+    <button routerLink="/create-post" class="create-post-btn">
+      <i class="fas fa-plus"></i>
+      <span>Créer un post</span>
+    </button>
+  </section>
 
-    <!-- Sección de comentarios -->
-    <div *ngIf="showCommentForm[post.id]" class="comments-section">
-      <!-- Formulario para comentar -->
-      <div class="comment-input">
-        <img [src]="currentUserAvatar" 
-             class="comment-avatar" 
-             alt="Tu avatar">
-        <input [(ngModel)]="newComment[post.id]" placeholder="Ajouter un commentaire..." />
-        <button (click)="addComment(post.id)">Envoyer</button>
-        <button (click)="cancelComment(post.id)">Annuler</button>
+  <section class="middle">
+    <div class="post-container">
+     
+      <button (click)="toggleForm()">Créer un post</button>
+    
+      <div *ngIf="showForm" class="form">
+        <textarea [(ngModel)]="nouveauPost.content" placeholder="Contenu..."></textarea>
+        <input [(ngModel)]="nouveauPost.media" placeholder="URL image/vidéo" />
+        <input [(ngModel)]="nouveauPost.link" placeholder="Lien" />
+        <button (click)="createPost()">Publier</button>
       </div>
+    
       
-      <!-- Lista de comentarios -->
-      <div *ngFor="let comment of comments[post.id]" class="comment">
-        <img [src]="comment.user?.avatar || 'assets/default-avatar.png'" 
-             class="comment-avatar" 
-             alt="Avatar">
+      <div *ngFor="let post of posts" class="post-card">
         
-        <div class="comment-body">
-          <div class="comment-header">
-            <span class="comment-username">{{comment.user?.username || 'Usuario'}}</span>
-            <span class="comment-date">{{ comment.createdAt | date:'short' }}</span>
+        <div class="post-header">
+          <span class="post-username">{{ post.utilisateur?.nom }}</span>
+
+        </div>
+    
+       
+        <p class="post-content">{{ post.content }}</p>
+    
+      
+        <div class="post-media">
+          <img *ngIf="isImage(post.media || '')" [src]="post.media" alt="Media del post" />
+          <video *ngIf="isVideo(post.media ?? '')" controls>
+            <source [src]="post.media" />
+          </video>
+        </div>
+    
+      
+        <a *ngIf="post.link" [href]="post.link" class="post-link" target="_blank">{{ post.link }}</a>
+    
+   
+        <p class="post-date">Publié le : {{ post.createdAt | date:'medium' }}</p>
+    
+    
+        <div class="actions">
+          <button *ngIf="post.id !== undefined" (click)="likePost(post.id!)" [class.liked]="likedPosts[post.id!]"
+            class="like-button">
+            ❤️ {{ post.likes || 0 }}
+          </button>
+        
+          <button *ngIf="post.id !== undefined" (click)="toggleComments(post.id!)">
+            💬 {{ showComments[post.id] ? 'Masquer' : 'Commentaire' }} </button>
+        
+          <button *ngIf="post.userId === currentUserId && post.id !== undefined" (click)="deletePost(post.id!)">
+            🗑 Supprimer
+          </button>
+        </div>
+        
+        <!-- Zone des commentaires -->
+        <div *ngIf="post.id !== undefined && showComments[post.id]" class="comments-section">
+        
+          <!-- Formulaire d'ajout de commentaire -->
+          <div class="comment-input">
+            <img [src]="currentUserAvatar || 'assets/default-avatar.png'" class="comment-avatar" alt="Ton avatar">
+            <input [(ngModel)]="newComment[post.id]" placeholder="Ajouter un commentaire..." />
+            <button (click)="addComment(post.id!)">Envoyer</button>
+            <button (click)="cancelComment(post.id!)">Annuler</button>
           </div>
-          <p class="comment-content">{{ comment.content }}</p>
-        </div>
         
-        <div class="comment-actions">
-          <button *ngIf="comment.userId === currentUserId" 
-                  class="comment-delete"
-                  (click)="deleteComment(comment.id, post.id)">×</button>
+          <!-- Liste des commentaires -->
+          <div *ngFor="let comment of commm" class="comment">
+            <div class="comment-body">
+              <div class="comment-header">
+    
+                <span class="comment-username">{{ comment.utilisateur?.nom || "jdejd" }}</span>
+                <span class="comment-date">{{ comment.createdAt | date:'short' }}</span>
+              </div>
+              <p class="comment-content">{{ comment.content }}</p>
+            </div>
+          </div>  
         </div>
-      </div>
+      </div> 
     </div>
-  </div>
-</div>
+  </section>
+</main>
+
+
+
+
+
+
+
+
+
+
 

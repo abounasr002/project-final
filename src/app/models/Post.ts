@@ -8,22 +8,26 @@
 //   updatedAt?: Date;
 // }
 
+import { Utilisateur } from "./utilisateur.model";
+
 
 
 
 
 export interface Post {
-isLiked: any;
   id?: number;
-  userId: number;
-  content: string;
+  userId?: number;
+  content?: string;
   media?: string;
   link?: string;
   createdAt?: Date;
   updatedAt?: Date;
   comments?: Comment[];
   likes?: number;
-  user?: { id: number, name: string, avatar?: string };
+}
+
+export interface PostWithUser extends Post {
+  utilisateur?: Utilisateur
 }
 
 

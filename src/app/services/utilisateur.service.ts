@@ -49,37 +49,43 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Utilisateur } from '../models/utilisateur.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UtilisateurService {
+
   private API_URL = 'http://localhost:3000'; // Asegúrate de tener la URL correcta
 
   constructor(private http: HttpClient) {}
 
   // Obtener todos los usuarios
   getAll(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.API_URL}/utilisateurs`);
+    const token = localStorage.getItem('token');
+    if(!token) {
+      throw new Error('Token not found');
+    }
+    const headers = { Authorization: `Bearer ${token}` };
+    return this.http.get<any[]>(`${this.API_URL}/users`, { headers, withCredentials: true });
   }
 
-  // Obtener un usuario por su ID
-  getById(id: number): Observable<any> {
-    return this.http.get<any>(`${this.API_URL}/utilisateurs/${id}`);
-  }
-
-  // Crear un nuevo usuario
-  create(userData: any): Observable<any> {
-    return this.http.post(`${this.API_URL}/utilisateurs`, userData);
+  getMe(): Observable<any> {
+    const token = localStorage.getItem('token');
+    if(!token) {
+      throw new Error('Token not found');
+    }
+    const headers = { Authorization: `Bearer ${token}` };
+    return this.http.get<Utilisateur>(`${this.API_URL}/users/me`, { headers, withCredentials: true });
   }
 
   // Actualizar un usuario existente
   update(id: number, userData: any): Observable<any> {
-    return this.http.put(`${this.API_URL}/utilisateurs/${id}`, userData);
+    return this.http.put(`${this.API_URL}/users/${id}`, userData);
   }
 
   // Eliminar un usuario
   delete(id: number): Observable<any> {
-    return this.http.delete(`${this.API_URL}/utilisateurs/${id}`);
+    return this.http.delete(`${this.API_URL}/users/${id}`);
   }
 }

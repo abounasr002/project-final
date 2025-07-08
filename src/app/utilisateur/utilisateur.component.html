@@ -44,7 +44,7 @@
     <div *ngIf="isEditMode">
       <h2>{{ currentUserId ? 'Modifier' : 'Ajouter' }} un utilisateur</h2>
   
-      <form (ngSubmit)="onSubmit()" [formGroup]="utilisateurForm">
+      <form  [formGroup]="utilisateurForm">
         <div class="form-group">
           <label for="nom">Nom</label>
           <input type="text" id="nom" class="form-control" formControlName="nom" required>

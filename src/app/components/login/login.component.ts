@@ -255,6 +255,7 @@ export class LoginComponent implements OnInit {
         next: (response: any) => {
           console.log('Connexion réussie:', response);
           // Stockage du token
+          localStorage.setItem('user', JSON.stringify(response.utilisateur));
           localStorage.setItem('token', response.token);
           this.isAuthenticated = true;
           this.errorMessage = '';

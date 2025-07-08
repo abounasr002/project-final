@@ -169,6 +169,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Post } from '../models/Post';
 
 @Injectable({ providedIn: 'root' })
 export class PostService {
@@ -177,12 +178,19 @@ export class PostService {
   constructor(private http: HttpClient) {}
 
   getPosts(): Observable<any[]> {
-    return this.http.get<any[]>(this.API_URL);
+    return this.http.get<Post[]>(this.API_URL);
   }
 
-  createPost(postData: any): Observable<any> {
-    return this.http.post(this.API_URL, postData);
+  createPost(body: any): Observable<any> {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      throw new Error('Token not found');
+    }
+    const headers = {'Authorization': `Bearer ${token}`,};
+  
+    return this.http.post<Post>(`${this.API_URL}`, body, {headers,withCredentials: true});
   }
+  
 
   deletePost(postId: number): Observable<any> {
     return this.http.delete(`${this.API_URL}/${postId}`);

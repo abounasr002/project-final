@@ -189,11 +189,16 @@ export class CommentService {
   constructor(private http: HttpClient) {}
 
   getCommentsByPost(postId: number): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/?postId=${postId}`);
+    return this.http.get<any[]>(`${this.apiUrl}/${postId}`);
   }
 
   createComment(postId: number, body: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/${postId}`, body, {});
+    const token = localStorage.getItem('token');
+    if(!token) {
+      throw new Error('Token not found');
+    }
+    const headers = { Authorization: `Bearer ${token}` };
+    return this.http.post<Comment>(`${this.apiUrl}/${postId}`, body, {headers, withCredentials: true});
   }
 
   deleteComment(commentId: number): Observable<any> {
