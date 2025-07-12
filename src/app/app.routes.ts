@@ -5,7 +5,11 @@ import { RegisterComponent } from './components/register/register.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { UtilisateursComponent } from './utilisateur/utilisateur.component';
 import { PostComponent } from './post/post.component';
-import { FollowersComponent } from './followers/followers.component';
+import { FollowersListComponent } from './followers-list/followers-list.component';
+import { ProfileComponent } from './user/profile/profile.component';
+import { ProfilComponent } from './profil/profil.component';
+
+
 
 
 
@@ -17,9 +21,11 @@ export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path:'utilisateur', component: UtilisateursComponent } ,
 {path:'post', component: PostComponent},
+{path: 'profil', component: ProfilComponent},
   // { path: '', redirectTo: 'profil/new', pathMatch: 'full' },
-  { path: '**', redirectTo: 'login' },
-  {path: 'followers', component: FollowersComponent}
+  { path: 'followers', component: FollowersListComponent },
+  { path: '**', redirectTo: 'login' }
+  
 ];
 
 @NgModule({

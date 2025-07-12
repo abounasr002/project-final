@@ -1,0 +1,563 @@
+/* General */
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  color: #2d2d2d;
+}
+
+/* Search */
+.search-container {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 40px 12px 16px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: box-shadow 0.2s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+.search-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #777;
+}
+
+.search-spinner {
+  margin-top: 10px;
+  color: #666;
+  font-style: italic;
+}
+
+/* Tabs */
+.tabs-container {
+  margin-top: 30px;
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tabs button {
+  flex: 1;
+  padding: 12px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  background: #f0f0f0;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.tabs button:hover {
+  background: #e0e0e0;
+}
+
+.tabs button.active {
+  background: #007bff;
+  color: #fff;
+}
+
+/* User Cards */
+.user-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.user-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  transition: transform 0.2s ease;
+}
+
+.user-card:hover {
+  transform: translateY(-2px);
+}
+
+.user-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  flex-shrink: 0;
+  text-transform: uppercase;
+}
+
+.user-info {
+  flex: 1;
+}
+
+.user-info h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.user-email {
+  font-size: 14px;
+  color: #666;
+}
+
+.user-bio {
+  font-size: 13px;
+  color: #888;
+  margin-top: 4px;
+}
+
+/* Buttons */
+.follow-btn,
+.unfollow-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.follow-btn {
+  background: #007bff;
+  color: #fff;
+}
+
+.follow-btn:hover {
+  background: #0056b3;
+}
+
+.unfollow-btn {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.unfollow-btn:hover {
+  background: #ddd;
+}
+
+/* Empty / Error / Loading States */
+.empty-state,
+.error-state,
+.loading-state {
+  text-align: center;
+  padding: 30px 20px;
+  color: #777;
+}
+
+.empty-state {
+  font-style: italic;
+}
+
+.error-icon {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.retry-btn {
+  background: #ff4d4f;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.retry-btn:hover {
+  background: #e60000;
+}
+
+/* Loading spinner */
+.spinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid #ddd;
+  border-top: 3px solid #007bff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 10px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .user-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .user-avatar {
+    margin-bottom: 10px;
+  }
+
+  .tabs {
+    flex-direction: column;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+
+.search-container {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 20px 12px 45px;
+  border: 2px solid #e0e0e0;
+  border-radius: 30px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.search-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #7f8c8d;
+  font-size: 18px;
+}
+
+.search-spinner {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(52, 152, 219, 0.2);
+  border-radius: 50%;
+  border-top-color: #3498db;
+  animation: spin 1s ease-in-out infinite;
+}
+
+
+.user-list {
+  display: grid;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.user-card {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.user-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.user-info {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.user-info h3 {
+  margin: 0 0 5px 0;
+  color: #2c3e50;
+  font-size: 17px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.username {
+  margin: 0 0 5px 0;
+  color: #7f8c8d;
+  font-size: 14px;
+}
+
+.bio {
+  margin: 5px 0 0 0;
+  color: #34495e;
+  font-size: 14px;
+  line-height: 1.4;
+  display: -webkit-box;
+
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+.action-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 15px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.action-btn.follow {
+  background-color: #3498db;
+  color: white;
+}
+
+.action-btn.follow:hover {
+  background-color: #2980b9;
+}
+
+.action-btn.unfollow {
+  background-color: #f1f2f6;
+  color: #7f8c8d;
+  border: 1px solid #dfe6e9;
+}
+
+.action-btn.unfollow:hover {
+  background-color: #e74c3c;
+  color: white;
+  border-color: #e74c3c;
+}
+
+
+.loading-state, .error-state, .empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.loading-state {
+  background-color: #f8f9fa;
+}
+
+.error-state {
+  background-color: #fef2f2;
+  border: 1px solid #fee2e2;
+}
+
+.empty-state {
+  background-color: #f8f9fa;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top: 4px solid #3498db;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 15px;
+}
+
+.error-icon, .empty-icon {
+  font-size: 40px;
+  margin-bottom: 15px;
+  opacity: 0.7;
+}
+
+.error-icon {
+  color: #e74c3c;
+}
+
+.retry-btn, .discover-btn {
+  padding: 10px 20px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.retry-btn {
+  background-color: #3498db;
+  color: white;
+}
+
+.retry-btn:hover {
+  background-color: #2980b9;
+}
+
+.discover-btn {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.discover-btn:hover {
+  background-color: #27ae60;
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.list-header h2 {
+  margin: 0;
+  color: #2c3e50;
+}
+
+.count {
+  background-color: #ecf0f1;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 14px;
+  color: #7f8c8d;
+}
+
+
+.search-results {
+  margin-bottom: 30px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.search-results h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  .user-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .avatar {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  
+  .action-btn {
+    margin-left: 0;
+    margin-top: 10px;
+    width: 100%;
+  }
+  
+  .user-info {
+    text-align: center;
+  }
+} */
+
+

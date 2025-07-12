@@ -190,44 +190,119 @@
 
 
 
-// src/app/services/profil.service.ts
-import { HttpClient } from '@angular/common/http';
+// // src/app/services/profil.service.ts
+// import { HttpClient } from '@angular/common/http';
+// import { Injectable } from '@angular/core';
+// import { Observable } from 'rxjs';
+
+// export interface Profil {
+//   id?: number;
+//   pseudo: string;
+//   bio: string;
+//   avatarUrl?: string;
+// }
+
+// @Injectable({
+//   providedIn: 'root'
+// })
+// export class ProfilService {
+//   deleteProfil: any;
+//   // getProfil(_id: number) {
+//   //     throw new Error('Method not implemented.');
+//   // }
+
+//   getProfil(id: number): Observable<Profil | undefined> {
+//     // Replace with actual implementation, e.g., HTTP call
+//     return this.http.get<Profil | undefined>(`/api/profils/${id}`);
+//   }
+//   private baseUrl = 'http://localhost:3000/profils'; // Cambia el puerto si es diferente
+
+//   constructor(private http: HttpClient) {}
+
+//   createProfil(profil: Profil): Observable<any> {
+//     return this.http.post(this.baseUrl, profil);
+//   }
+
+//   getProfilById(id: string): Observable<Profil> {
+//     return this.http.get<Profil>(`${this.baseUrl}/${id}`);
+//   }
+
+//   updateProfil(id: string, profil: Profil): Observable<any> {
+//     return this.http.put(`${this.baseUrl}/${id}`, profil);
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface Profil {
   id?: number;
-  pseudo: string;
   bio: string;
+  pseudo: string;
   avatarUrl?: string;
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProfilService {
-  deleteProfil: any;
-  // getProfil(_id: number) {
-  //     throw new Error('Method not implemented.');
-  // }
-
-  getProfil(id: number): Observable<Profil | undefined> {
-    // Replace with actual implementation, e.g., HTTP call
-    return this.http.get<Profil | undefined>(`/api/profils/${id}`);
-  }
-  private baseUrl = 'http://localhost:3000/profils'; // Cambia el puerto si es diferente
+  private apiUrl = 'http://localhost:3000/profils'; // Cambia si tu backend usa otro puerto
 
   constructor(private http: HttpClient) {}
 
   createProfil(profil: Profil): Observable<any> {
-    return this.http.post(this.baseUrl, profil);
+    return this.http.post(this.apiUrl, profil);
   }
 
-  getProfilById(id: string): Observable<Profil> {
-    return this.http.get<Profil>(`${this.baseUrl}/${id}`);
+  getProfilById(id: number): Observable<Profil> {
+    return this.http.get<Profil>(`${this.apiUrl}/${id}`);
   }
 
-  updateProfil(id: string, profil: Profil): Observable<any> {
-    return this.http.put(`${this.baseUrl}/${id}`, profil);
+  updateProfil(id: number, profil: Partial<Profil>): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${id}`, profil);
+  }
+
+  deleteProfil(id: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${id}`);
   }
 }

@@ -1,0 +1,19 @@
+<div class="container">
+  <h2>Gestion du Profil</h2>
+
+  <form (submit)="createProfil()">
+    <label>Pseudo :</label>
+    <input [(ngModel)]="profil.pseudo" name="pseudo" required />
+
+    <label>Bio :</label>
+    <textarea [(ngModel)]="profil.bio" name="bio" required></textarea>
+
+    <label>Avatar URL :</label>
+    <input [(ngModel)]="profil.avatarUrl" name="avatarUrl" />
+
+    <button type="submit">Créer le profil</button>
+  </form>
+
+  <button (click)="updateProfil()">Mettre à jour</button>
+  <button (click)="deleteProfil()">Supprimer le profil</button>
+</div>
