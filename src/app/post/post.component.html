@@ -1,10 +1,10 @@
 
 <header>
-  <img src="assets/logo.png" alt="Logo Together" class="logo" />
+
 
   <div class="user-nav">
     <h2>{{utilisateur?.nom}}</h2>
-    <img src="assets/user-avatar.jpg" alt="Photo de profil" class="user-avatar" />
+    <!-- <img src="assets/user-avatar.jpg" alt="Photo de profil" class="user-avatar" /> -->
   </div>
 </header>
 
@@ -16,25 +16,25 @@
       <span>Post</span>
     </h2>
 
-    <h2 routerLink="/session" routerLinkActive="active" class="nav-btn">
+       <h2 routerLink="/session" routerLinkActive="active" class="nav-btn">
       <i class="fas fa-comments"></i>
-      <span>Likes</span>
+      <span (click)="goToFollowers()">Followers</span>
     </h2>
 
     <h2 routerLink="/profil" routerLinkActive="active" class="nav-btn">
       <i class="fas fa-user"></i>
-      <span>Profil</span>
+      <span (click)="goToProfil()">Profil</span>
     </h2>
 
     <h2 routerLink="/search" routerLinkActive="active" class="nav-btn">
       <i class="fas fa-search"></i>
-      <span>Rechercher</span>
+      <span (click)="goToAccueil()">Accueil</span>
     </h2>
 
-    <h2 routerLink="/settings" routerLinkActive="active" class="nav-btn">
+    <!-- <h2 routerLink="/settings" routerLinkActive="active" class="nav-btn">
       <i class="fas fa-cog"></i>
       <span>Paramètres</span>
-    </h2>
+    </h2> -->
 
     <h2 (click)="logout()" class="nav-btn logout-btn">
       <i class="fas fa-sign-out-alt"></i>
@@ -104,7 +104,7 @@
         
           <!-- Formulaire d'ajout de commentaire -->
           <div class="comment-input">
-            <img [src]="currentUserAvatar || 'assets/default-avatar.png'" class="comment-avatar" alt="Ton avatar">
+            <!-- <img [src]="currentUserAvatar || 'assets/default-avatar.png'" class="comment-avatar" alt="Ton avatar"> -->
             <input [(ngModel)]="newComment[post.id]" placeholder="Ajouter un commentaire..." />
             <button (click)="addComment(post.id!)">Envoyer</button>
             <button (click)="cancelComment(post.id!)">Annuler</button>

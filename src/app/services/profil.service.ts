@@ -271,38 +271,38 @@
 
 
 
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+// import { Injectable } from '@angular/core';
+// import { HttpClient } from '@angular/common/http';
+// import { Observable } from 'rxjs';
 
-export interface Profil {
-  id?: number;
-  bio: string;
-  pseudo: string;
-  avatarUrl?: string;
-}
+// export interface Profil {
+//   id?: number;
+//   bio: string;
+//   pseudo: string;
+//   avatarUrl?: string;
+// }
 
-@Injectable({
-  providedIn: 'root',
-})
-export class ProfilService {
-  private apiUrl = 'http://localhost:3000/profils'; // Cambia si tu backend usa otro puerto
+// @Injectable({
+//   providedIn: 'root',
+// })
+// export class ProfilService {
+//   private apiUrl = 'http://localhost:3000/profils'; // Cambia si tu backend usa otro puerto
 
-  constructor(private http: HttpClient) {}
+//   constructor(private http: HttpClient) {}
 
-  createProfil(profil: Profil): Observable<any> {
-    return this.http.post(this.apiUrl, profil);
-  }
+//   createProfil(profil: Profil): Observable<any> {
+//     return this.http.post(this.apiUrl, profil);
+//   }
 
-  getProfilById(id: number): Observable<Profil> {
-    return this.http.get<Profil>(`${this.apiUrl}/${id}`);
-  }
+//   getProfilById(id: number): Observable<Profil> {
+//     return this.http.get<Profil>(`${this.apiUrl}/${id}`);
+//   }
 
-  updateProfil(id: number, profil: Partial<Profil>): Observable<any> {
-    return this.http.put(`${this.apiUrl}/${id}`, profil);
-  }
+//   updateProfil(id: number, profil: Partial<Profil>): Observable<any> {
+//     return this.http.put(`${this.apiUrl}/${id}`, profil);
+//   }
 
-  deleteProfil(id: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/${id}`);
-  }
-}
+//   deleteProfil(id: number): Observable<any> {
+//     return this.http.delete(`${this.apiUrl}/${id}`);
+//   }
+// }

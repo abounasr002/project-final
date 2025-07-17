@@ -1,19 +1,61 @@
-<div class="container">
-  <h2>Gestion du Profil</h2>
+<div class="profile-container">
 
-  <form (submit)="createProfil()">
-    <label>Pseudo :</label>
-    <input [(ngModel)]="profil.pseudo" name="pseudo" required />
+  <!-- État de chargement -->
+  <ng-container *ngIf="utilisateur; else loading">
+    
+    <!-- En-tête du profil -->
+    <header class="profile-header">
 
-    <label>Bio :</label>
-    <textarea [(ngModel)]="profil.bio" name="bio" required></textarea>
+      <h1 class="profile-name">{{ utilisateur.pseudo }}</h1>
+    </header>
 
-    <label>Avatar URL :</label>
-    <input [(ngModel)]="profil.avatarUrl" name="avatarUrl" />
+    <!-- Section d'information du profil -->
+    <section class="profile-info-section">
+      <div class="info-card">
+        <h2 class="section-title">Informations du Profil</h2>
 
-    <button type="submit">Créer le profil</button>
-  </form>
+        <form (ngSubmit)="updateProfil()" class="profile-form">
+          
+          <div class="form-group">
+            <label for="pseudo">Nom d'utilisateur</label>
+            <input 
+              type="text" 
+              id="pseudo" 
+              name="pseudo" 
+              [(ngModel)]="utilisateur.pseudo" 
+              class="form-control"
+              required
+            >
+          </div>
 
-  <button (click)="updateProfil()">Mettre à jour</button>
-  <button (click)="deleteProfil()">Supprimer le profil</button>
+          <div class="form-group">
+            <label for="bio">Biographie</label>
+            <textarea 
+              id="bio" 
+              name="bio" 
+              [(ngModel)]="bio" 
+              class="form-control bio-textarea"
+              rows="4"
+              placeholder="Parlez-nous un peu de vous..."
+            ></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-save">Enregistrer les modifications</button>
+          </div>
+          
+        </form>
+      </div>
+    </section>
+
+  </ng-container>
+
+  <!-- Template de chargement -->
+  <ng-template #loading>
+    <div class="loading-state">
+      <div class="spinner"></div>
+      <p>Chargement du profil...</p>
+    </div>
+  </ng-template>
+
 </div>

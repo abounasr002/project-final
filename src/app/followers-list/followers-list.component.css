@@ -1,4 +1,4 @@
-/* General */
+
 .container {
   max-width: 900px;
   margin: 40px auto;
@@ -7,7 +7,7 @@
   color: #2d2d2d;
 }
 
-/* Search */
+
 .search-container {
   position: relative;
   margin-bottom: 30px;
@@ -43,7 +43,7 @@
   font-style: italic;
 }
 
-/* Tabs */
+
 .tabs-container {
   margin-top: 30px;
 }
@@ -74,7 +74,7 @@
   color: #fff;
 }
 
-/* User Cards */
+
 .user-list {
   display: flex;
   flex-direction: column;
@@ -131,7 +131,7 @@
   margin-top: 4px;
 }
 
-/* Buttons */
+
 .follow-btn,
 .unfollow-btn {
   padding: 8px 16px;
@@ -161,7 +161,7 @@
   background: #ddd;
 }
 
-/* Empty / Error / Loading States */
+
 .empty-state,
 .error-state,
 .loading-state {
@@ -194,7 +194,7 @@
   background: #e60000;
 }
 
-/* Loading spinner */
+
 .spinner {
   width: 30px;
   height: 30px;
@@ -209,7 +209,7 @@
   to { transform: rotate(360deg); }
 }
 
-/* Responsive */
+
 @media (max-width: 600px) {
   .user-card {
     flex-direction: column;

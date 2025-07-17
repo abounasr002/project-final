@@ -149,7 +149,7 @@ export class PostComponent implements OnInit {
     this.postService.createPost(this.nouveauPost).subscribe({
       next: () => {
         this.nouveauPost = { content: '', media: '', link: '' };
-        window.location.reload(); // puedes optimizar esto más adelante
+        window.location.reload(); 
       },
       error: () => {
         alert("Le titre et la description du post sont requis.");
@@ -200,12 +200,47 @@ export class PostComponent implements OnInit {
     });
   }
 
-  isImage(url: string) {
-    return /\.(jpe?g|png|gif|webp)$/i.test(url);
+  isImage(url: string): boolean {
+  if (!url) return false;
+  const cleanUrl = url.split('?')[0].split('#')[0];
+  return /\.(jpe?g|png|gif|webp|bmp|svg)$/i.test(cleanUrl);
+}
+
+  isVideo(url: string): boolean {
+    if (!url) return false;
+    const cleanUrl = url.split('?')[0].split('#')[0];
+    return /\.(mp4|webm|ogg|mov|avi|wmv|mpeg|mpg|mkv|3gp)$/i.test(cleanUrl);
   }
 
-  isVideo(url: string) {
-    return /\.(mp4|webm|ogg)$/i.test(url);
+  getVideoType(url: string): string {
+    const extension = url.split('.').pop()?.toLowerCase();
+    switch(extension) {
+      case 'mp4': return 'video/mp4';
+      case 'webm': return 'video/webm';
+      case 'ogg': return 'video/ogg';
+      case 'mov': return 'video/quicktime';
+      default: return 'video/mp4';
+    }
+  }
+
+  handleMediaError(post: PostWithUser) {
+    console.error('Error loading media:', post.media);
+    post.media = 'assets/media-error.png';
+  }
+
+  toggleVideoFullscreen(event: Event) {
+    const videoWrapper = (event.target as HTMLElement).closest('.video-wrapper');
+    const video = videoWrapper?.querySelector('video');
+    
+    if (!video) return;
+
+    if (video.requestFullscreen) {
+      video.requestFullscreen();
+    } else if ((video as any).webkitRequestFullscreen) {
+      (video as any).webkitRequestFullscreen();
+    } else if ((video as any).msRequestFullscreen) {
+      (video as any).msRequestFullscreen();
+    }
   }
 
   logout() {
@@ -226,4 +261,49 @@ export class PostComponent implements OnInit {
   goToPosts() {
     this.router.navigate(['/post']);
   }
+
+
+
+  
+  goToAccueil() {
+    this.router.navigate(['/accueil']);
+  }
+
+
+     goToFollowers() {
+    this.router.navigate(['/followers']);
+  }
+
+  goToProfil() {
+    this.router.navigate(['/profil']);
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // isImage(url: string) {
+  //   return /\.(jpe?g|png|gif|webp)$/i.test(url);
+  // }
+
+  // isVideo(url: string) {
+  //   return /\.(mp4|webm|ogg)$/i.test(url);
+  // }

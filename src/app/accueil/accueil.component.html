@@ -1,68 +1,23 @@
-<!-- <header class="app-header">
-    <div class="logo">
-        <a routerLink="/accueil">
-            <img src="TG.webp" alt="Together Logo" />
-        </a>
-    </div>
-    <nav class="nav-links">
-        <a routerLink="/login">Se connecter</a>
-        <a routerLink="/register">S'inscrire</a>
-    </nav>
-</header>
-
-<div class="landing-container">
-    <div class="text-section">
-        <h1>Bienvenue sur Together</h1>
-        <p>La nouvelle plateforme sociale pour partager, discuter et se connecter avec le monde.</p>
-        <ul class="features">
-            <li>🟣 Créez votre profil personnalisé</li>
-            <li>🟣 Partagez vos pensées et photos</li>
-            <li>🟣 Rejoignez des groupes et événements</li>
-            <li>🟣 Système de messagerie en temps réel</li>
-        </ul>
-        <div class="btn-group">
-            <button routerLink="/login">Connexion</button>
-            <button routerLink="/register">Créer un compte</button>
-        </div>
-    </div>
-
-    <div class="image-section">
-        <img src="social-illustration.webp" alt="Illustration communauté">
-    </div>
-</div> -->
-
-
-
-
-
-
-
-
-
-
-
-
 
 <header>
-  <img src="assets/logo.png" alt="Logo Together" class="logo" />
+
 
   <div class="user-nav">
-    <h2>{{utilisateur?.nom}}</h2>
-    <img src="assets/user-avatar.jpg" alt="Photo de profil" class="user-avatar" />
+    <h2>{{ utilisateur?.nom }}</h2>
+    <!-- <img [src]="utilisateur?.profilePicture || 'assets/default-avatar.png'" alt="Photo de profil" class="user-avatar" /> -->
   </div>
 </header>
 
 <main>
   <section class="left">
-    <!-- Botón Accueil (Posts) actualizado -->
-    <h2 (click)="goToPosts()" class="nav-btn" [class.active]="isActive('/posts')">
+    <h2 (click)="goToPosts()">
       <i class="fas fa-home"></i>
       <span>Post</span>
     </h2>
 
     <h2 routerLink="/session" routerLinkActive="active" class="nav-btn">
       <i class="fas fa-comments"></i>
-      <span>Likes</span>
+      <span (click)="goToFollowers()">Followers</span>
     </h2>
 
     <h2 routerLink="/profil" routerLinkActive="active" class="nav-btn">
@@ -72,13 +27,13 @@
 
     <h2 routerLink="/search" routerLinkActive="active" class="nav-btn">
       <i class="fas fa-search"></i>
-      <span>Rechercher</span>
+      <span (click)="goToAccueil()">Accueil</span>
     </h2>
 
-    <h2 routerLink="/settings" routerLinkActive="active" class="nav-btn">
+    <!-- <h2 routerLink="/settings" routerLinkActive="active" class="nav-btn">
       <i class="fas fa-cog"></i>
       <span>Paramètres</span>
-    </h2>
+    </h2> -->
 
     <h2 (click)="logout()" class="nav-btn logout-btn">
       <i class="fas fa-sign-out-alt"></i>
@@ -92,9 +47,73 @@
   </section>
 
   <section class="middle">
+    <div class="post-container">
+      <!-- Formulaire de création -->
+      <button (click)="toggleForm()">Créer un post</button>
 
+      <div *ngIf="showForm" class="form">
+        <textarea [(ngModel)]="nouveauPost.content" placeholder="Contenu..."></textarea>
+        <input [(ngModel)]="nouveauPost.media" placeholder="URL image/vidéo" />
+        <input [(ngModel)]="nouveauPost.link" placeholder="Lien" />
+        <button (click)="createPost()">Publier</button>
+      </div>
+
+      <!-- Affichage des posts -->
+      <div *ngFor="let post of posts" class="post-card">
+        <div class="post-header">
+         
+          <span class="post-username">{{ post.utilisateur?.pseudo || post.utilisateur?.nom }}</span>
+        </div>
+
+        <p class="post-content">{{ post.content }}</p>
+
+        <div class="post-media">
+          <img *ngIf="isImage(post.media || '')" [src]="post.media" alt="Media du post" class="media">
+          <video *ngIf="isVideo(post.media ?? '')" controls class="media">
+            <source [src]="post.media" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <a *ngIf="post.link" [href]="post.link" class="post-link" target="_blank">{{ post.link }}</a>
+
+        <p class="post-date">Publié le : {{ post.createdAt | date:'medium' }}</p>
+
+        <!-- Boutons d’action avec ❤️ 💬 🗑 -->
+        <div class="post-actions">
+          <button (click)="likePost(post.id!)">
+            ❤️ <span [class.liked]="likedPosts[post.id!]">{{ post.likes || 0 }}</span>
+          </button>
+
+          <button (click)="toggleComments(post.id!)">
+            💬 <span>{{ showComments[post.id!] ? 'Masquer' : 'Commentaire' }}</span>
+          </button>
+
+          <button *ngIf="post.userId === currentUserId" (click)="deletePost(post.id!)">
+            🗑 Supprimer
+          </button>
+        </div>
+
+        <!-- Zone des commentaires -->
+        <div *ngIf="post.id !== undefined && showComments[post.id]" class="comments-section">
+          <div class="comment-input">
+            <!-- <img [src]="currentUserAvatar || 'assets/default-avatar.png'" class="comment-avatar" alt="Ton avatar"> -->
+            <input [(ngModel)]="newComment[post.id]" placeholder="Ajouter un commentaire..." />
+            <button (click)="addComment(post.id!)">Envoyer</button>
+            <button (click)="cancelComment(post.id!)">Annuler</button>
+          </div>
+
+          <div *ngFor="let comment of commm" class="comment">
+            <div class="comment-body">
+              <div class="comment-header">
+                <span class="comment-username">{{ comment.utilisateur?.nom || comment.utilisateur?.pseudo }}</span>
+                <span class="comment-date">{{ comment.createdAt | date:'short' }}</span>
+              </div>
+              <p class="comment-content">{{ comment.content }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 </main>
-
-
-

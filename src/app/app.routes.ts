@@ -18,10 +18,10 @@ export const routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  {path: 'profil', component: ProfilComponent},
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path:'utilisateur', component: UtilisateursComponent } ,
 {path:'post', component: PostComponent},
-{path: 'profil', component: ProfilComponent},
   // { path: '', redirectTo: 'profil/new', pathMatch: 'full' },
   { path: 'followers', component: FollowersListComponent },
   { path: '**', redirectTo: 'login' }

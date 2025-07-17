@@ -1,16 +1,3 @@
-// export interface Utilisateur {
-//     id?: number;
-//     nom: string;
-//     email: string;
-//     password?: string;
-//     bio?: string;
-//     profilePicture?: string;
-//     socialLinks?: any;
-//     role: string;
-//     createdAt?: Date;
-//     updatedAt?: Date;
-//   }
-  
 
 
 export interface Utilisateur {
@@ -21,12 +8,12 @@ isVerified: any;
 avatarUrl: any;
   id: number;
   nom: string;
-  pseudo: string; // Asegúrate de que esta propiedad exista
+  pseudo: string; 
   email: string;
   password: string;
   bio: string;
   profilePicture: string;
-  socialLinks: any; // o un tipo más específico si lo tienes
+  socialLinks: any; 
   role: string;
   createdAt: Date;
   updatedAt: Date;
