@@ -11,9 +11,6 @@ import { ProfilComponent } from './profil/profil.component';
 
 
 
-
-
-
 export const routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
   { path: 'login', component: LoginComponent },

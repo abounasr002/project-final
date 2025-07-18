@@ -1,3 +1,291 @@
+<!-- <div class="container">
+
+  <div class="search-container">
+    <input type="text" [(ngModel)]="searchTerm" 
+           placeholder="Rechercher des utilisateurs..." class="search-input">
+    <i class="search-icon">🔍</i>
+  </div>
+
+ 
+  <div *ngIf="isLoading" class="loading-state">
+    <div class="spinner"></div>
+    <p>Chargement des données...</p>
+  </div>
+
+
+  <div *ngIf="errorMessage && !isLoading" class="error-state">
+    <div class="error-icon">⚠️</div>
+    <h3 class="error-title">Erreur</h3>
+    <p class="error-message">{{errorMessage}}</p>
+    <button class="retry-button" (click)="loadUserData()">Réessayer</button>
+  </div>
+
+
+  <div *ngIf="filteredUsers.length === 0 && !isLoading && !errorMessage" class="empty-state">
+    <div class="empty-state-icon">👤</div>
+    <h3 class="empty-state-title">Aucun utilisateur trouvé</h3>
+    <p class="empty-state-description" *ngIf="searchTerm">
+      Aucun résultat pour "{{searchTerm}}"
+    </p>
+    <p class="empty-state-description" *ngIf="!searchTerm">
+      Vous ne suivez actuellement aucun utilisateur
+    </p>
+    <button class="discover-button" routerLink="/explore">
+      Découvrir des utilisateurs
+    </button>
+  </div>
+
+
+  <div *ngIf="filteredUsers.length > 0 && !isLoading">
+    <div class="header">
+      <h2>Utilisateurs que vous suivez</h2>
+      <span class="count">{{filteredUsers.length}} {{filteredUsers.length === 1 ? 'utilisateur' : 'utilisateurs'}}</span>
+    </div>
+
+    <div class="user-list">
+      <div *ngFor="let user of filteredUsers" class="user-card">
+        <div class="user-avatar" [style.background]="getRandomColor()">
+          {{ user.nom?.charAt(0)?.toUpperCase() || 'U' }}
+        </div>
+        
+        <div class="user-info">
+          <h3 class="user-name">{{ user.nom || 'Utilisateur sans nom' }}</h3>
+          <p class="user-username">{{ user.pseudo || 'utilisateur' }}</p>
+          <p *ngIf="user.bio" class="user-bio">{{ user.bio }}</p>
+        </div>
+        
+        <button class="unfollow-btn" (click)="unfollow(user.id)">
+          Ne plus suivre
+        </button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container">
+
+  <div class="search-container">
+    <input type="text" [(ngModel)]="searchTerm" 
+           (input)="search(searchTerm)"
+           placeholder="Buscar por nombre..." 
+           class="search-input">
+    <i class="search-icon">🔍</i>
+    <div *ngIf="isSearching" class="search-spinner"></div>
+  </div>
+
+
+  <div *ngIf="searchTerm && searchTerm.length < 2" class="search-hint">
+    Ingresa al menos 2 caracteres para buscar
+  </div>
+
+ 
+  <div *ngIf="searchTerm && searchTerm.length >= 2 && searchResults.length > 0" class="search-results">
+    <h3>Resultados de búsqueda ({{searchResults.length}})</h3>
+    <div class="user-list">
+      <div *ngFor="let user of searchResults" class="user-card">
+        <div class="avatar" [style.background]="getRandomColor()">
+          {{user.nom?.charAt(0)?.toUpperCase() || 'U'}}
+        </div>
+        
+        <div class="user-info">
+          <h3>{{user.nom || 'Usuario sin nombre'}}</h3>
+          <p class="username">{{user.email}}</p>
+          <p *ngIf="user.bio" class="bio">{{user.bio}}</p>
+        </div>
+        
+        <button class="action-btn follow" 
+                *ngIf="!followingIds.includes(user.id)"
+                (click)="follow(user.id)">
+          Seguir
+        </button>
+        
+        <button class="action-btn unfollow" 
+                *ngIf="followingIds.includes(user.id)"
+                (click)="unfollow(user.id)">
+          Siguiendo
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <div *ngIf="searchTerm && searchTerm.length >= 2 && searchResults.length === 0 && !isSearching" 
+       class="empty-state">
+    <div class="empty-icon">👀</div>
+    <p>No se encontraron usuarios para "{{searchTerm}}"</p>
+  </div>
+
+ 
+  <div *ngIf="isLoading" class="loading-state">
+    <div class="spinner"></div>
+    <p>Cargando datos...</p>
+  </div>
+
+  <div *ngIf="errorMessage && !isLoading" class="error-state">
+    <div class="error-icon">⚠️</div>
+    <p>{{errorMessage}}</p>
+    <button class="retry-btn" (click)="loadUserData()">Reintentar</button>
+  </div>
+
+  <div *ngIf="(!searchTerm || searchTerm.length < 2) && !isLoading && !errorMessage">
+    <div class="list-header">
+      <h2>Usuarios que sigues</h2>
+      <span class="count">{{users.length}} {{users.length === 1 ? 'usuario' : 'usuarios'}}</span>
+    </div>
+
+    <div *ngIf="users.length === 0" class="empty-state">
+      <div class="empty-icon">👤</div>
+      <p>No sigues a ningún usuario actualmente</p>
+      <button class="discover-btn" routerLink="/explore">Descubrir usuarios</button>
+    </div>
+
+    <div class="user-list">
+      <div *ngFor="let user of users" class="user-card">
+        <div class="avatar" [style.background]="getRandomColor()">
+          {{user.nom?.charAt(0)?.toUpperCase() || 'U'}}
+        </div>
+        
+        <div class="user-info">
+          <h3>{{user.nom || 'Usuario sin nombre'}}</h3>
+          <p class="username">{{user.email}}</p>
+          <p *ngIf="user.bio" class="bio">{{user.bio}}</p>
+        </div>
+        
+        <button class="action-btn unfollow" (click)="unfollow(user.id)">
+          Dejar de seguir
+        </button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <div class="container">
   <!-- Barre de recherche -->

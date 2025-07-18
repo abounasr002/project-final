@@ -104,7 +104,6 @@
         
           <!-- Formulaire d'ajout de commentaire -->
           <div class="comment-input">
-            <!-- <img [src]="currentUserAvatar || 'assets/default-avatar.png'" class="comment-avatar" alt="Ton avatar"> -->
             <input [(ngModel)]="newComment[post.id]" placeholder="Ajouter un commentaire..." />
             <button (click)="addComment(post.id!)">Envoyer</button>
             <button (click)="cancelComment(post.id!)">Annuler</button>

@@ -151,9 +151,9 @@ export class PostComponent implements OnInit {
         this.nouveauPost = { content: '', media: '', link: '' };
         window.location.reload(); 
       },
-      error: () => {
-        alert("Le titre et la description du post sont requis.");
-      }
+      // error: () => {
+      //   alert("Le titre et la description du post sont requis.");
+      // }
     });
   }
 
