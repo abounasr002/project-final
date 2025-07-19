@@ -1,38 +1,5 @@
-// import { Component } from '@angular/core';
-// import { AuthService } from '../../services/auth.service';
-// import { FormsModule } from '@angular/forms';
-// import { FooterComponent } from "../../footer/footer.component";
-
-// @Component({
-//   selector: 'app-register',
-//   templateUrl: './register.component.html',
-//   styleUrls: ['./register.component.css'],
-//   imports: [FormsModule]
-// })
-// export class RegisterComponent {
-//   nom: string = '';
-//   email: string = '';
-//   password: string = '';
-
-//   constructor(private authService: AuthService) {}
-
-//   register() {
-//     this.authService.register({ nom: this.nom, email: this.email, password: this.password }).subscribe({
-//       next: (response) => {
-//         console.log('Inscription réussie:', response);
-//       },
-//       error: (error) => {
-//         console.error('Erreur denregistrement:', error);
-//       }
-//     });
-//   }
-// }
-
-
-
-
 import { Component } from '@angular/core';
-import { AuthService } from '../../services/auth.service'; // Ajusta el path según tu proyecto
+import { AuthService } from '../../services/auth.service'; 
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 

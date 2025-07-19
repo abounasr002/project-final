@@ -11,7 +11,7 @@ interface LikePayload {
   providedIn: 'root'
 })
 export class LikeService {
-  private apiUrl = 'http://localhost:3000/likes'; // Cambia la URL base según tu backend
+  private apiUrl = 'http://localhost:3000/likes'; 
 
   constructor(private http: HttpClient) {}
 

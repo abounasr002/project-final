@@ -1,183 +1,4 @@
-/* .post-container {
-  max-width: 700px;
-  margin: 2rem auto;
-  padding: 1rem;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
-}
 
-
-.post-container > button:first-child {
-  background-color: #2a9d8f;
-  color: white;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 25px;
-  cursor: pointer;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  transition: background-color 0.3s ease;
-}
-
-.post-container > button:first-child:hover {
-  background-color: #21867a;
-}
-
-
-.post-container form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.post-container textarea,
-.post-container input[type="url"] {
-  width: 100%;
-  padding: 0.7rem 1rem;
-  border: 1.5px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-  resize: vertical;
-  transition: border-color 0.3s ease;
-  font-family: inherit;
-}
-
-.post-container textarea:focus,
-.post-container input[type="url"]:focus {
-  border-color: #2a9d8f;
-  outline: none;
-}
-
-.post-container form button[type="submit"] {
-  align-self: flex-start;
-  background-color: #2a9d8f;
-  color: white;
-  border: none;
-  padding: 0.6rem 1.5rem;
-  border-radius: 25px;
-  cursor: pointer;
-  font-weight: 700;
-  transition: background-color 0.3s ease;
-}
-
-.post-container form button[type="submit"]:hover {
-  background-color: #21867a;
-}
-
-
-.post-card {
-  background-color: #f9fafb;
-  border: 1px solid #ddd;
-  padding: 1rem 1.2rem;
-  border-radius: 12px;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-  position: relative;
-}
-
-
-.post-card p {
-  margin-bottom: 0.8rem;
-  line-height: 1.4;
-  white-space: pre-wrap;
-}
-
-
-.post-card .media {
-  max-width: 100%;
-  max-height: 300px;
-  border-radius: 8px;
-  margin-bottom: 0.8rem;
-  object-fit: cover;
-  display: block;
-}
-
-
-.post-card a {
-  display: inline-block;
-  margin-bottom: 0.8rem;
-  color: #2a9d8f;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-.post-card a:hover {
-  color: #21867a;
-  text-decoration: underline;
-}
-
-
-.post-card .date {
-  font-size: 0.8rem;
-  color: #777;
-  margin-bottom: 0.8rem;
-}
-
-
-.post-card button {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background-color: #e63946;
-  color: white;
-  border: none;
-  padding: 0.3rem 0.7rem;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.85rem;
-  font-weight: 700;
-  transition: background-color 0.3s ease;
-}
-
-.post-card button:hover {
-  background-color: #b02a37;
-} */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Reset básico */
 * {
   margin: 0;
   padding: 0;
@@ -192,7 +13,7 @@ html {
   color: #333;
 }
 
-/* Header */
+
 header {
   display: flex;
   justify-content: space-between;
@@ -237,15 +58,15 @@ header {
   border: 2px solid white;
 }
 
-/* Main layout */
+
 main {
   display: flex;
   height: calc(100vh - 70px);
-  /* Ajusta según header */
+
   background-color: #e9ecef;
 }
 
-/* Left sidebar */
+
 .left {
   width: 220px;
   background-color: #264653;
@@ -285,12 +106,10 @@ main {
   color: white;
 }
 
-/* Íconos */
 .left i {
   font-size: 1.2rem;
 }
 
-/* Botón crear post */
 .left button {
   margin-top: auto;
   background-color: #2a9d8f;
@@ -305,7 +124,6 @@ main {
   background-color: #21867a;
 }
 
-/* Middle section */
 .middle {
   flex-grow: 1;
   padding: 2rem;
@@ -314,7 +132,7 @@ main {
   border-left: 1px solid #ddd;
 }
 
-/* Scrollbar para sidebar y middle */
+
 .left::-webkit-scrollbar,
 .middle::-webkit-scrollbar {
   width: 6px;
@@ -651,7 +469,7 @@ textarea {
   transform: scale(1.1);
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 480px) {
   .post-container {
     padding: 0 0.5rem;
@@ -688,7 +506,7 @@ textarea {
   }
 }
 
-/* Teléfonos grandes y tablets (481px - 768px) */
+
 @media (max-width: 768px) {
   .post-container {
     padding: 0 1rem;
@@ -817,230 +635,6 @@ textarea {
   margin-top: 10px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* .post-container {
-  max-width: 700px;
-  margin: 2rem auto;
-  padding: 1rem;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
-}
-
-
-.post-container > button:first-child {
-  background-color: #2a9d8f;
-  color: white;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 25px;
-  cursor: pointer;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  transition: background-color 0.3s ease;
-}
-
-.post-container > button:first-child:hover {
-  background-color: #21867a;
-}
-
-
-.post-container form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.post-container textarea,
-.post-container input[type="url"] {
-  width: 100%;
-  padding: 0.7rem 1rem;
-  border: 1.5px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-  resize: vertical;
-  transition: border-color 0.3s ease;
-  font-family: inherit;
-}
-
-.post-container textarea:focus,
-.post-container input[type="url"]:focus {
-  border-color: #2a9d8f;
-  outline: none;
-}
-
-.post-container form button[type="submit"] {
-  align-self: flex-start;
-  background-color: #2a9d8f;
-  color: white;
-  border: none;
-  padding: 0.6rem 1.5rem;
-  border-radius: 25px;
-  cursor: pointer;
-  font-weight: 700;
-  transition: background-color 0.3s ease;
-}
-
-.post-container form button[type="submit"]:hover {
-  background-color: #21867a;
-}
-
-
-.post-card {
-  background-color: #f9fafb;
-  border: 1px solid #ddd;
-  padding: 1rem 1.2rem;
-  border-radius: 12px;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-  position: relative;
-}
-
-
-.post-card p {
-  margin-bottom: 0.8rem;
-  line-height: 1.4;
-  white-space: pre-wrap;
-}
-
-
-.post-card .media {
-  max-width: 100%;
-  max-height: 300px;
-  border-radius: 8px;
-  margin-bottom: 0.8rem;
-  object-fit: cover;
-  display: block;
-}
-
-
-.post-card a {
-  display: inline-block;
-  margin-bottom: 0.8rem;
-  color: #2a9d8f;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-.post-card a:hover {
-  color: #21867a;
-  text-decoration: underline;
-}
-
-
-.post-card .date {
-  font-size: 0.8rem;
-  color: #777;
-  margin-bottom: 0.8rem;
-}
-
-
-.post-card button {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background-color: #e63946;
-  color: white;
-  border: none;
-  padding: 0.3rem 0.7rem;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.85rem;
-  font-weight: 700;
-  transition: background-color 0.3s ease;
-}
-
-.post-card button:hover {
-  background-color: #b02a37;
-} */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Reset básico */
 * {
   margin: 0;
   padding: 0;
@@ -1100,15 +694,14 @@ header {
   border: 2px solid white;
 }
 
-/* Main layout */
+
 main {
   display: flex;
   height: calc(100vh - 70px);
-  /* Ajusta según header */
+
   background-color: #e9ecef;
 }
 
-/* Left sidebar */
 .left {
   width: 220px;
   background-color: #264653;
@@ -1148,12 +741,12 @@ main {
   color: white;
 }
 
-/* Íconos */
+
 .left i {
   font-size: 1.2rem;
 }
 
-/* Botón crear post */
+
 .left button {
   margin-top: auto;
   background-color: #2a9d8f;
@@ -1168,7 +761,6 @@ main {
   background-color: #21867a;
 }
 
-/* Middle section */
 .middle {
   flex-grow: 1;
   padding: 2rem;
@@ -1177,7 +769,7 @@ main {
   border-left: 1px solid #ddd;
 }
 
-/* Scrollbar para sidebar y middle */
+
 .left::-webkit-scrollbar,
 .middle::-webkit-scrollbar {
   width: 6px;
@@ -1514,8 +1106,7 @@ textarea {
   transform: scale(1.1);
 }
 
-/* Responsive adjustments */
-/* Teléfonos pequeños (iPhone SE, Galaxy A01, ≤480px) */
+
 @media (max-width: 480px) {
   .post-container {
     padding: 0 0.5rem;
@@ -1552,7 +1143,7 @@ textarea {
   }
 }
 
-/* Teléfonos grandes y tablets (481px - 768px) */
+
 @media (max-width: 768px) {
   .post-container {
     padding: 0 1rem;
@@ -1587,7 +1178,7 @@ textarea {
   }
 }
 
-/* Laptops y pantallas medianas (769px - 1024px) */
+
 @media (max-width: 1024px) {
   .post-container {
     padding: 0 2rem;
@@ -1614,7 +1205,7 @@ textarea {
   }
 }
 
-/* Escritorio grande (más de 1024px) */
+
 @media (min-width: 1025px) {
   .post-container {
     padding: 0 4rem;
